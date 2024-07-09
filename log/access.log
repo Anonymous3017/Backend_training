@@ -1,0 +1,6 @@
+::ffff:127.0.0.1 - - [09/Jul/2024:09:08:30 +0000] "GET /api/v1/product/listproduct HTTP/1.1" 200 840 "-" "Thunder Client (https://www.thunderclient.com)"
+::ffff:127.0.0.1 - - [09/Jul/2024:10:00:48 +0000] "POST /api/v1/user/login HTTP/1.1" 200 339 "-" "Thunder Client (https://www.thunderclient.com)"
+::ffff:127.0.0.1 - - [09/Jul/2024:10:04:23 +0000] "POST /api/v1/product/bulkupload HTTP/1.1" 500 110 "-" "Thunder Client (https://www.thunderclient.com)"
+::ffff:127.0.0.1 - - [09/Jul/2024:10:11:25 +0000] "POST /api/v1/product/bulkupload HTTP/1.1" 500 181 "-" "Thunder Client (https://www.thunderclient.com)"
+::ffff:127.0.0.1 - - [09/Jul/2024:10:12:21 +0000] "POST /api/v1/product/bulkupload HTTP/1.1" 200 45 "-" "Thunder Client (https://www.thunderclient.com)"
+::ffff:127.0.0.1 - - [09/Jul/2024:10:13:04 +0000] "GET /api/v1/product/listproduct HTTP/1.1" 200 3004 "-" "Thunder Client (https://www.thunderclient.com)"

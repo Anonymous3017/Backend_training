@@ -1,4 +1,7 @@
 const Product = require('../models/product');
+const multer = require('multer');
+const csv = require('csv-parser');
+const fs = require('fs');
 
 const createProduct = async (req, res) => {
     try {
@@ -56,10 +59,35 @@ const deleteProduct = async (req, res) => {
     }
 };
 
+//Bulk Upload
+const bulkUpload = async (req, res) => {
+    if (!req.file) {
+        return res.status(400).json({ message: 'Please upload a file' });
+    }
+    const results = [];
+    const file = req.file;
+    fs.createReadStream(file.path)
+    .pipe(csv())
+    .on('data', (data) => results.push(data))
+    .on('end', async () => {
+        try {
+            await Product.insertMany(results);
+            res.status(200).json({ message: 'Products uploaded successfully!' });
+        } catch (err) {
+            res.status(500).json({ message: 'Server error', error: err.message });
+        } finally {
+            fs.unlinkSync(file.path);
+        }
+    });
+}
+
+
+
 module.exports = {
     createProduct,
     getAllProducts,
     getProductById,
     updateProduct,
-    deleteProduct
+    deleteProduct,
+    bulkUpload
 };
